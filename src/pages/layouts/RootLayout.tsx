@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import { AppNavbar } from "../components/AppNavBar";
-import { AppFooter } from "../components/AppFooter";
+import { AppNavbar } from "../../components/AppNavBar";
+import { AppFooter } from "../../components/AppFooter";
 import { Stack } from "@mui/material";
 
 function RootLayout() {

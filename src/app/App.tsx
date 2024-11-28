@@ -3,7 +3,7 @@ import { RouterProvider } from "react-router/dom";
 import { useContext } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import "./App.css";
-import { ThemeContext } from "./contexts/themeContext";
+import { ThemeContext } from "../contexts/themeContext";
 import { router } from "./router";
 
 function App() {

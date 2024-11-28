@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { endpoints } from "../../services/api";
+import { endpoints } from "../services/api";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import {
   ItemCategory,
   ItemCategoryGridRowSource,
-} from "../../types/itemCategory.type";
-import { AppTitle } from "../../components/AppTitle";
-import { AppMainContent } from "../../components/AppMainContent";
+} from "../types/itemCategory.type";
+import { AppTitle } from "../components/AppTitle";
+import { AppMainContent } from "../components/AppMainContent";
 
 const paginationModel = { page: 0, pageSize: 5 };
 

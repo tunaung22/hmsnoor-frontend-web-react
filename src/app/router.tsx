@@ -1,21 +1,19 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-} from "react-router";
+import { createBrowserRouter } from "react-router";
 
 // Layouts
-import { RootLayout } from "./layouts/RootLayout";
+import { AuthLayout, RootLayout } from "../pages/layouts";
 // Pages
-import { ErrorPage } from "./pages/error/ErrorPage";
-import { DashboardPage } from "./pages/dashboard/DashboardPage";
-import { ItemPage } from "./pages/item/ItemPage";
-import { SaleInvoicePage } from "./pages/saleInvoice/SaleInvoicePage";
-import { CategoryPage } from "./pages/category/CategoryPage";
-import { AboutPage } from "./pages/about/AboutPage";
-import LoginPage from "./pages/loginPage";
-// import NotFoundPage from "./pages/error/NotFoundPage";
-import { CurrencyPage } from "./pages/currency/CurrencyPage";
+import {
+  AboutPage,
+  CategoryPage,
+  CurrencyPage,
+  DashboardPage,
+  ErrorPage,
+  ItemPage,
+  LoginPage,
+  // NotFoundPage,
+  SaleInvoicePage,
+} from "../pages";
 
 // const routes = {
 //   homePage: {path: "/home",element: <HomePage />,name: "Home",},
@@ -45,7 +43,17 @@ const router = createBrowserRouter(
         { path: "/about", element: <AboutPage /> },
       ],
     },
-    { path: "/auth", element: <LoginPage /> },
+    {
+      path: "/auth",
+      element: <LoginPage />,
+      errorElement: <ErrorPage />,
+    },
+    // {
+    //   path: "/auth",
+    //   element: <AuthLayout />,
+    //   errorElement: <ErrorPage />,
+    //   children: [{ path: "/", element: <LoginPage /> }],
+    // },
   ],
   {
     future: {

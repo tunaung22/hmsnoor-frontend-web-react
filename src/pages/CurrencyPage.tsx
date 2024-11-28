@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Currency, CurrencyDataSource } from "../../types/currency.type";
-import { endpoints } from "../../services/api";
+import { Currency, CurrencyDataSource } from "../types/currency.type";
+import { endpoints } from "../services/api";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { AppTitle } from "../../components/AppTitle";
-import { AppMainContent } from "../../components/AppMainContent";
+import { AppTitle } from "../components/AppTitle";
+import { AppMainContent } from "../components/AppMainContent";
 
 const paginationModel = { page: 0, pageSize: 5 };
 

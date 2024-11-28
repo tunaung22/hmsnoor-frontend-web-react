@@ -3,11 +3,11 @@ import {
   MRT_ColumnDef,
   useMaterialReactTable,
 } from "material-react-table";
-import { ItemHeader, ItemDetail } from "../../types/item.type";
+import { ItemHeader, ItemDetail } from "../types/item.type";
 import { useMemo, useState } from "react";
 
-import { AppMainContent } from "../../components/AppMainContent";
-import { AppTitle } from "../../components/AppTitle";
+import { AppMainContent } from "../components/AppMainContent";
+import { AppTitle } from "../components/AppTitle";
 import {
   Alert,
   Box,
@@ -20,7 +20,7 @@ import {
   TableRow,
 } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import { useFetchItemHeaders } from "../../hooks/useFetchItemHeaders";
+import { useFetchItemHeaders } from "../hooks/useFetchItemHeaders";
 
 function formatNumber(value: number): string {
   const formatter = new Intl.NumberFormat("en-US", {

@@ -133,7 +133,8 @@ function AppNavbar() {
           >
             <AppLogo
               sx={{
-                color: primaryLight, //"#0182a3",
+                color: primaryLight,
+                stroke: primaryMain,
                 display: { xs: "none", md: "flex" },
                 mr: 1,
               }}
@@ -225,7 +226,9 @@ function AppNavbar() {
             {/* <AdbIcon  /> */}
             <AppLogo
               sx={{
-                color: "#0182a3",
+                // color: "#0182a3",
+                color: primaryLight,
+                stroke: primaryMain,
                 display: { xs: "flex", md: "none" },
                 mr: 1,
               }}
