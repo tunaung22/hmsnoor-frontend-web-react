@@ -22,7 +22,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./AppNavBar.css";
-import { AppLogo } from "../AppLogo";
+import { AppLogo } from "./AppLogo";
 
 const localTheme = localStorage.getItem("theme");
 
@@ -35,7 +35,12 @@ const localTheme = localStorage.getItem("theme");
 //   { key: "candy", label: "Candy" },
 // ];
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const profileMenuItems = [
+  { key: "profile", label: "Profile" },
+  { key: "account", label: "Account" },
+  { key: "", label: "Logout" },
+];
+
 const navMenuItems = [
   {
     key: "dashboard",
@@ -62,17 +67,11 @@ const navMenuItems = [
     icon: <CategoryIcon />,
   },
   {
-    label: "Currency",
     key: "currency",
+    label: "Currency",
     path: "/currency",
     icon: <MonetizationOnIcon />,
   },
-];
-
-const profileMenuItems = [
-  { key: "profile", label: "Profile" },
-  { key: "setting", label: "Settings" },
-  { key: "logout", label: "Logout" },
 ];
 
 function AppNavbar() {
@@ -81,7 +80,7 @@ function AppNavbar() {
   // const [activeTheme, setActiveTheme] = useState(localTheme);
   // Current PATH State
   // const [current, setCurrent] = useState("");
-  // const [selectedMenuItemIndex, setSelectedMenuItemIndex] = useState(location);
+  const [selectedMenuItemIndex, setSelectedMenuItemIndex] = useState(location);
 
   // useEffect(() => {
   //   const currentPath = location.pathname;
@@ -188,7 +187,7 @@ function AppNavbar() {
               >
                 {navMenuItems.map((nav, index) => (
                   <MenuItem
-                    key={nav.key}
+                    key={`${index}${nav.key}`}
                     onClick={() => handleMenuItemClick(index, nav.path)}
                     sx={{
                       color: location.pathname === nav.path ? "#fff" : ``,
@@ -251,8 +250,8 @@ function AppNavbar() {
               HMSNOOR
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {navMenuItems.map((nav) => (
-                <ButtonBase centerRipple={true}>
+              {navMenuItems.map((nav, index) => (
+                <ButtonBase key={index} centerRipple={true}>
                   <Typography
                     component={NavLink}
                     to={nav.path}
@@ -317,10 +316,15 @@ function AppNavbar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                {profileMenuItems.map((item) => (
+                  <MenuItem
+                    id="profile-menu-item"
+                    className="profile-menu-item"
+                    key={item.key}
+                    onClick={handleCloseUserMenu}
+                  >
                     <Typography sx={{ textAlign: "center" }}>
-                      {setting}
+                      {item.label}
                     </Typography>
                   </MenuItem>
                 ))}

@@ -13,7 +13,7 @@ import { ItemPage } from "./pages/item/ItemPage";
 import { SaleInvoicePage } from "./pages/saleInvoice/SaleInvoicePage";
 import { CategoryPage } from "./pages/category/CategoryPage";
 import { AboutPage } from "./pages/about/AboutPage";
-import { LoginPage } from "./pages/login/LoginPage";
+import LoginPage from "./pages/loginPage";
 // import NotFoundPage from "./pages/error/NotFoundPage";
 import { CurrencyPage } from "./pages/currency/CurrencyPage";
 

@@ -15,9 +15,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <RouterProvider
           router={router}
-          future={{
-            v7_startTransition: true,
-          }}
+          // future={{
+          //   v7_startTransition: true,
+          // }}
         />
       </ThemeProvider>
     </>

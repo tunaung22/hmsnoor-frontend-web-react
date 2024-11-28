@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
-import { AppTitle } from "../../components/AppTitle/AppTitle";
-import { AppMainContent } from "../../components/AppMainContent/AppMainContent";
+import { AppTitle } from "../../components/AppTitle";
+import { AppMainContent } from "../../components/AppMainContent";
 
 function DashboardPage() {
   return (

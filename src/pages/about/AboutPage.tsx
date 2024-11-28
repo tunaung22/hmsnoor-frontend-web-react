@@ -1,5 +1,5 @@
-import { AppMainContent } from "../../components/AppMainContent/AppMainContent";
-import { AppTitle } from "../../components/AppTitle/AppTitle";
+import { AppMainContent } from "../../components/AppMainContent";
+import { AppTitle } from "../../components/AppTitle";
 
 function AboutPage() {
   return (

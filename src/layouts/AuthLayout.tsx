@@ -1,15 +1,14 @@
-import { Outlet } from "react-router-dom";
-import { AppNavbar } from "../components/AppNavbar/AppNavBar";
-import { Flex } from "antd";
+import { Box } from "@mui/material";
+import { Outlet } from "react-router";
 
 function AuthLayout() {
   // const [primary, setPrimary] = useState("#1677ff");
 
   return (
     <>
-      <Flex>
+      <Box>
         <Outlet />
-      </Flex>
+      </Box>
     </>
   );
 }

@@ -5,8 +5,8 @@ import {
   ItemCategory,
   ItemCategoryGridRowSource,
 } from "../../types/itemCategory.type";
-import { AppTitle } from "../../components/AppTitle/AppTitle";
-import { AppMainContent } from "../../components/AppMainContent/AppMainContent";
+import { AppTitle } from "../../components/AppTitle";
+import { AppMainContent } from "../../components/AppMainContent";
 
 const paginationModel = { page: 0, pageSize: 5 };
 

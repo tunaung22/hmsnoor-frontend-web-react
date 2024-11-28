@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SaleInvoice } from "../../types/saleInvoice.type";
 import { Typography } from "@mui/material";
-import { AppTitle } from "../../components/AppTitle/AppTitle";
+import { AppTitle } from "../../components/AppTitle";
 
 function SaleInvoicePage() {
   const [invoices, setInvoices] = useState<SaleInvoice[]>();

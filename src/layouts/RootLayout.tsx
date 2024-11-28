@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
-import { AppNavbar } from "../components/AppNavbar/AppNavBar";
-import { AppFooter } from "../components/AppFooter/AppFooter";
-import { Box, Container, Paper, Stack } from "@mui/material";
+import { AppNavbar } from "../components/AppNavBar";
+import { AppFooter } from "../components/AppFooter";
+import { Stack } from "@mui/material";
 
 function RootLayout() {
   // const [primary, setPrimary] = useState("#1677ff");
@@ -36,7 +36,13 @@ function RootLayout() {
             Content
           </div> */}
       {/* </Paper>   */}
-      <Stack>
+      <Stack
+        sx={{
+          paddingX: "0.5em",
+          paddingY: ".4em",
+          minHeight: "90vh",
+        }}
+      >
         <Outlet />
       </Stack>
       {/* </Container> */}
