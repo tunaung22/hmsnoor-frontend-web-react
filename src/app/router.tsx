@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 
 // Layouts
-import { AuthLayout, RootLayout } from "../pages/layouts";
+import { RootLayout } from "../pages/layouts";
 // Pages
 import {
   AboutPage,

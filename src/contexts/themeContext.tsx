@@ -77,7 +77,7 @@ hmsnoorTheme.typography.h3 = {
 const ThemeContext = createContext(hmsnoorTheme);
 
 function ThemeContextProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState(hmsnoorTheme);
+  const [theme] = useState(hmsnoorTheme);
 
   return (
     <>

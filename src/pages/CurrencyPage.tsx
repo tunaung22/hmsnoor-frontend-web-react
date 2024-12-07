@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Currency, CurrencyDataSource } from "../types/currency.type";
+import { Currency } from "../types/currency.type";
 import { AppTitle } from "../components/AppTitle";
 import { AppMainContent } from "../components/AppMainContent";
 import { useFetchCurrenciesQuery } from "../store/rtkApis/currencyApi";

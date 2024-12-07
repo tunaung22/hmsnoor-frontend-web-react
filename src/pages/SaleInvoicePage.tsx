@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { SaleInvoice } from "../types/saleInvoice.type";
-import { Alert, Stack, Typography } from "@mui/material";
+import { Alert, Stack } from "@mui/material";
 import { AppTitle } from "../components/AppTitle";
 import { useFetchSaleInvoicesQuery } from "../store/rtkApis/saleInvoiceApi";
 import { AppMainContent } from "../components/AppMainContent";
@@ -12,7 +12,7 @@ import {
 import { useSearchParams } from "react-router";
 
 function SaleInvoicePage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const saleType = searchParams.get("saleType");
   const pageNumber = searchParams.get("pageNumber")

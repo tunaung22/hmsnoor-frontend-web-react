@@ -1,4 +1,4 @@
-import { Box, styled, Theme, Typography } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 
 type AppTitleProps = {
   title: string;

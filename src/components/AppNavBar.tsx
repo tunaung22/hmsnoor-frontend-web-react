@@ -1,5 +1,5 @@
-import { MouseEvent, useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router";
+import { MouseEvent, useState } from "react";
+import { NavLink, useLocation } from "react-router";
 import {
   AppBar,
   Avatar,
@@ -19,12 +19,11 @@ import ReceiptIcon from "@mui/icons-material/Receipt";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import CategoryIcon from "@mui/icons-material/Category";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./AppNavBar.css";
 import { AppLogo } from "./AppLogo";
 
-const localTheme = localStorage.getItem("theme");
+// const localTheme = localStorage.getItem("theme");
 
 // type NavMenuItems = Required<MenuProps>["items"][number];
 
@@ -80,7 +79,7 @@ function AppNavbar() {
   // const [activeTheme, setActiveTheme] = useState(localTheme);
   // Current PATH State
   // const [current, setCurrent] = useState("");
-  const [selectedMenuItemIndex, setSelectedMenuItemIndex] = useState(location);
+  // const [setSelectedMenuItemIndex] = useState(location);
 
   // useEffect(() => {
   //   const currentPath = location.pathname;
@@ -110,8 +109,8 @@ function AppNavbar() {
     setAnchorElUser(null);
   };
 
-  const handleMenuItemClick = (index, path) => {
-    setSelectedMenuItemIndex(index);
+  const handleMenuItemClick = () => {
+    // setSelectedMenuItemIndex(index);
     handleCloseNavMenu();
   };
 
@@ -189,7 +188,7 @@ function AppNavbar() {
                 {navMenuItems.map((nav, index) => (
                   <MenuItem
                     key={`${index}${nav.key}`}
-                    onClick={() => handleMenuItemClick(index, nav.path)}
+                    onClick={() => handleMenuItemClick()}
                     sx={{
                       color: location.pathname === nav.path ? "#fff" : ``,
                       background:

@@ -22,7 +22,7 @@ function AppLoginForm() {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<AppLoginFormSchema>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);

@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Currency } from "../../types/currency.type";
+import { ENDPOINTS } from "../../services/api";
 
 export interface CurrencyState {
   data: Currency[];
@@ -50,7 +52,7 @@ export const currencyReducer = currencySlice.reducer;
 export const fetchCurrencyListAsync = createAsyncThunk(
   "currency/fetchCurrencyList",
   async () => {
-    const response = await fetch(endpoints.v1.currency);
+    const response = await fetch(ENDPOINTS.v1.currency);
     const data: Currency[] = await response.json();
     const newData: Currency[] = data.map((c) => ({
       // id: c.currencyNotation,

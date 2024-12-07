@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { ENDPOINTS } from "../services/api";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import {
   ItemCategory,
   ItemCategoryGridRowSource,
@@ -18,7 +17,7 @@ import {
 function CategoryPage() {
   const { data, error, isFetching } = useFetchItemCategoriesQuery(null);
 
-  const [itemCategoryGridRowSource, setItemCategoryGridRowSource] = useState<
+  const [, setItemCategoryGridRowSource] = useState<
     ItemCategoryGridRowSource[]
   >([]);
 
