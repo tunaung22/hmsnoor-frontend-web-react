@@ -4,8 +4,7 @@ import {
   useMaterialReactTable,
 } from "material-react-table";
 import { ItemHeader, ItemDetail } from "../types/item.type";
-import { useMemo, useState } from "react";
-
+import { useMemo } from "react";
 import { AppMainContent } from "../components/AppMainContent";
 import { AppTitle } from "../components/AppTitle";
 import {
@@ -20,7 +19,7 @@ import {
   TableRow,
 } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import { useFetchItemHeaders } from "../hooks/useFetchItemHeaders";
+import { useFetchItemHeadersQuery } from "../store/rtkApis/itemHeaderApi";
 
 function formatNumber(value: number): string {
   const formatter = new Intl.NumberFormat("en-US", {
@@ -31,9 +30,8 @@ function formatNumber(value: number): string {
 }
 
 function ItemPage() {
-  const { states, methods } = useFetchItemHeaders();
+  const { data, error, isFetching } = useFetchItemHeadersQuery(null);
 
-  // console.log(itemGridRowSource);
   const mrtColumns = useMemo<MRT_ColumnDef<ItemHeader>[]>(
     () => [
       // {
@@ -43,22 +41,32 @@ function ItemPage() {
       {
         accessorKey: "itemType",
         header: "Item Code",
+        size: 200,
+        grow: false,
       },
       {
         accessorKey: "itemNo",
         header: "Type",
+        size: 200,
+        grow: false,
       },
       {
         accessorKey: "itemName",
         header: "Name",
+        size: 300,
+        grow: true,
       },
       {
         accessorKey: "mItemName",
         header: "M Name",
+        size: 200,
+        grow: true,
       },
       {
         accessorFn: (row) => `${row.itemCategory.itemCategoryName}`,
         header: "Category",
+        size: 200,
+        grow: false,
       },
     ],
     []
@@ -66,7 +74,10 @@ function ItemPage() {
 
   const table = useMaterialReactTable({
     columns: mrtColumns,
-    data: states.itemGridRowSource,
+    data: data ?? [],
+    columnResizeMode: "onEnd",
+    enableColumnResizing: true,
+    layoutMode: "grid-no-grow",
     enableExpandAll: true, //hide expand all double arrow in column header
     enableExpanding: true,
     filterFromLeafRows: true, //apply filtering to all rows instead of just parent rows
@@ -77,9 +88,9 @@ function ItemPage() {
     },
     renderDetailPanel: ({ row }) =>
       row.original.itemDetails ? (
-        <TableContainer component={Box} sx={{ paddingRight: "0em" }}>
+        <TableContainer component={Box} sx={{ paddingX: "1em" }}>
           <Table size="small" sx={{ display: "flex", justifyContent: "end" }}>
-            <TableBody sx={{ paddingRight: "1%" }}>
+            <TableBody sx={{ paddingX: "1%" }}>
               {row.original.itemDetails.map((detail: ItemDetail, index) => {
                 return (
                   <TableRow key={index} sx={{ border: "1px solid #e0e0e0" }}>
@@ -107,10 +118,11 @@ function ItemPage() {
     paginateExpandedRows: false, //When rows are expanded, do not count sub-rows as number of rows on the page towards pagination
   });
 
-  const handleRefreshData = async () => {
-    console.log("handleRefreshData");
-    // await methods.fetchItems();
-    methods.reloadData();
+  const renderTable = () => {
+    if (isFetching) return <>Loading...</>;
+    if (error) return <Alert severity="warning">Error fetching data</Alert>;
+
+    return <MaterialReactTable table={table} />;
   };
 
   return (
@@ -122,30 +134,13 @@ function ItemPage() {
           padding: "0.5em",
         }}
       >
-        <AppTitle>Products</AppTitle>
-        <Button onClick={handleRefreshData}>Refresh</Button>
+        <AppTitle title="Products" />
         <ButtonGroup variant="contained" aria-label="Basic button group">
           <Button startIcon={<ControlPointIcon />}>Create</Button>
         </ButtonGroup>
       </Box>
       <AppMainContent sx={{ display: "flex", flexDirection: "column" }}>
-        {/* <DataGrid
-          rows={itemGridRowSource}
-          columns={columns}
-          initialState={{ pagination: { paginationModel } }}
-          pageSizeOptions={[5, 10, 20, 50, 100]}
-          sx={{
-            [`&  .MuiDataGrid-cell:focus`]: {
-              outline: "solid #00637C 0px",
-              outlineOffset: "-1px",
-            },
-          }}
-        /> */}
-        {states.error ? (
-          <Alert severity="warning">{states.error}</Alert>
-        ) : (
-          <MaterialReactTable table={table} />
-        )}
+        {renderTable()}
       </AppMainContent>
     </>
   );

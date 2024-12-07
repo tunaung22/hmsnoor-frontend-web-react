@@ -8,9 +8,13 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import App from "./app/App.tsx";
+import { Provider } from "react-redux";
+import { store } from "./store/index.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>
 );

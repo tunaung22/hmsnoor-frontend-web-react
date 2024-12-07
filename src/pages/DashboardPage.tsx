@@ -5,7 +5,7 @@ import { AppMainContent } from "../components/AppMainContent";
 function DashboardPage() {
   return (
     <>
-      <AppTitle>Dashboard Page</AppTitle>
+      <AppTitle title="Dashboard Page" />
       <AppMainContent>
         <Button>Button</Button>
         <Button variant="outlined">Primary</Button>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { endpoints } from "../services/api";
+import { ENDPOINTS } from "../services/api";
 import { ItemDetail, ItemHeader } from "../types/item.type";
 
 const useFetchItemHeaders = () => {
@@ -15,9 +15,8 @@ const useFetchItemHeaders = () => {
   const fetchItems = async () => {
     console.log("fetchItems method started");
     setIsLoading(true);
-    debugger;
     try {
-      const response = await fetch(endpoints.v1.item);
+      const response = await fetch(ENDPOINTS.v1.item);
       if (!response.ok) {
         throw new Error(`HTTP error ${response.status}`);
       }

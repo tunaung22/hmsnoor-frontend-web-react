@@ -4,7 +4,7 @@ import { AppTitle } from "../components/AppTitle";
 function AboutPage() {
   return (
     <>
-      <AppTitle>About</AppTitle>
+      <AppTitle title="About" />
       <AppMainContent></AppMainContent>
     </>
   );

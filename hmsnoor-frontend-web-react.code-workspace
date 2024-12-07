@@ -8,7 +8,6 @@
 		// WORKBENCH
 		// ---------------------------------------------------
 		"workbench.iconTheme": "vscode-icons",
-		"workbench.colorTheme": "Cobalt2",
 		// EDITOR
 		// ---------------------------------------------------
 		"editor.defaultFormatter": "esbenp.prettier-vscode",

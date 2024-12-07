@@ -1,9 +1,9 @@
 import { Currency } from "../types/currency.type";
-import { endpoints } from "./api";
+import { ENDPOINTS } from "./api";
 
 export async function fetchUsers(): Promise<Currency[]> {
   try {
-    const response = await fetch(endpoints.v1.currency);
+    const response = await fetch(ENDPOINTS.v1.currency);
     const data: Currency[] = await response.json();
 
     return data;
